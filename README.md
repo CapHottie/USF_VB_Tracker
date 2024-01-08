@@ -9,6 +9,8 @@ Last time I coded in Python was 2018/19, since I've done most of my work in Java
 ## Structure notes
 Big picture: There will be a game instance where most of the user interaction will take place. Outside of that, there will be data maintained and queried for all game instances likely stored in a local csv file
 Very likely there will be three data frames: (1) game stats where each row is a snapshot description of an event (2) Team-level stats sheet (3) game-level player performance/actions
+
+I keep switching between whether each of these functions will be worked on by separate python scripts or to just put everything in a single Karl file. As of 1:31 AM on 1/8/2024 I'm changing to having multiple scripts to minimize class separations and just being able to use global  variables
 ## Functions:
 1.- Record stats
 2.- Check rotation is valid (dobutful)
