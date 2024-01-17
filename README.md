@@ -10,4 +10,4 @@ Very likely there will be three data frames: (1) game stats where each row is a 
 3.- Calculate and display secondary/tertiary stats like hit pct and hitting efficiency
 
 ## Implementation:
-Use PyQt5 for front, python for backend. 
+Python all throughout, storing data in excel so anybody can look under the hood

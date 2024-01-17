@@ -10,6 +10,7 @@ class Match:
         # takes in String array, each element is one part of the player description
         return
 
+@dataclass(frozen = True)
 class Player:
     #should store game-level elements
     #init function creates Player instance that stores individual stats
