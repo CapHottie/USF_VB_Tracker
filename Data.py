@@ -1,4 +1,20 @@
 import customtkinter as ctk
+import pandas as pd
+
+class DB:
+    def __init__(self) -> None:
+        pass
+    
+    def filter_by_player(self, player):
+        pass
+    
+    def filter_by_match(self):
+        pass
+    
+    
+    
+    def filter_by_column(self, category):
+        pass
 
 class DataCategoryButton(ctk.CTkButton):
     def __init__(self, master, title):
@@ -50,6 +66,11 @@ class DBView():
         
         self.blank_window()
 
+    def open_player_options(self):
+        LB = self.leftToggleBar
+        clear_view(LB)
+        
+    
     def blank_window(self):
         clear_view(self.leftToggleBar)
         clear_view(self.mainFrame)
@@ -57,7 +78,7 @@ class DBView():
         noViewSelected = ctk.CTkLabel(self.leftToggleBar, text="Please select a data category")
         noViewSelected.grid(row=0, column=0, padx=5, pady=5, sticky="nsew")
         self.leftToggleBar.grid_columnconfigure(0, weight=1)
-        self.leftToggleBar.grid_rowconfigure(0, weight=1)
+        self.leftToggleBar.grid_rowconfigure(0, weight=0)
         
         # populate main frame with default text
         emptyView = ctk.CTkLabel(self.mainFrame, text="No data queried")
