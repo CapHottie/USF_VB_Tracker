@@ -5,19 +5,29 @@ import pandas as pd
 # the purpose of this object is to facilitate access to data from a given season rather than maintaining all-time data
 class Database():
     def __init__(self, season) -> None:
-        # field declarations
-        self.playerLog = pd.read_csv(f"../logs/{season}/roster.csv")
-        self.gameLog = pd.read_csv(f"../logs/{season}/matches/games_info.csv")
-        self.setsLog = pd.read_csv(f"../logs/{season}/matches/sets_log.csv")
-        # event-specific records
-        self.eventsLog = pd.read_csv(f"../logs/{season}/events/events_log.csv")
-        self.hitsLog = pd.read_csv(f"../logs/{season}/events/hits_log.csv")
-        self.serviceLog = pd.read_csv(f"../logs/{season}/events/serves_log.csv")
-        self.assistsLog = pd.read_csv(f"../logs/{season}/events/assists_log.csv")
-        self.blockingLog = pd.read_csv(f"../logs/{season}/events/blocks_log.csv")
-        self.digsLog = pd.read_csv(f"../logs/{season}/events/digs_log.csv")
-        self.receivesLog = pd.read_csv(f"../logs/{season}/events/receives_log.csv")
+        # Define file paths and corresponding attribute names
+        datasets = {
+            'playerLog': 'roster.csv',
+            'gameLog': 'matches/games_info.csv',
+            'setsLog': 'matches/sets_log.csv',
+            'hitsLog': 'events/hits_log.csv',
+            'serviceLog': 'events/serves_log.csv',
+            'assistsLog': 'events/assists_log.csv',
+            'blockingLog': 'events/blocks_log.csv',
+            'digsLog': 'events/digs_log.csv',
+            'receivesLog': 'events/receives_log.csv',
+        }
+
+        # Initialize fields using a loop
+        for attribute_name, file_path in datasets.items():
+            setattr(self, attribute_name, pd.read_csv(f"../logs/{season}/{file_path}"))
+
+        # Initialize eventCategories
         self.eventCategories = ("hits", "serves", "assists", "blocks", "digs", "receives")
+    
+    def list_players(self):
+        self.playerLog
+        pass
     
     def filter_by_player(self, player):
         pass
@@ -26,4 +36,11 @@ class Database():
         pass
 
     def filter_by_column(self, category):
+        pass
+class Player:
+    def __init__(self) -> None:
+        pass
+
+class Game:
+    def __init__(self) -> None:
         pass

@@ -1,6 +1,7 @@
 import customtkinter as ctk
 import pandas as pd
 from ViewManagement import *
+from DataManagement import *
 
 class DataCategoryButton(ctk.CTkButton):
     def __init__(self, master, title):
@@ -49,7 +50,8 @@ class DataView():
         self.blank_window()
         self.df = Database()
 
-    def view_season_options(self, )
+    def view_season_options(self):
+        pass
     
     def view_player_options(self):
         LB = self.leftToggleBar
