@@ -18,28 +18,28 @@ class Database():
             'receivesLog': 'events/receives_log.csv',
         }
 
-        # Initialize fields using a loop
-        for attribute_name, file_path in datasets.items():
-            setattr(self, attribute_name, pd.read_csv(f"../logs/{season}/{file_path}"))
-
-        # Initialize eventCategories
-        self.eventCategories = ("hits", "serves", "assists", "blocks", "digs", "receives")
+        # Initialize datasets fields 
+        for attribute, file_path in datasets.items():
+            setattr(self, attribute, pd.read_csv(f"../logs/{season}/{file_path}"))
+        
+        self.PlayerList = {} # dictionary containing Player obj instances 
+        playerColumns = list(self.playerLog.columns)
+        for i in range(self.playerLog.shape[0]):
+            playerRow = self.playerLog.iloc[i].values
+            player = Player(playerColumns, playerRow)
+            self.PlayerList.setdefault(player.player_id, player)
     
-    def list_players(self):
-        self.playerLog
-        pass
     
-    def filter_by_player(self, player):
-        pass
-    
-    def filter_by_match(self):
-        pass
-
-    def filter_by_column(self, category):
-        pass
 class Player:
-    def __init__(self) -> None:
-        pass
+    # attributes is the list of column headings in the roster dataset
+    # values is what is contained in that given player's file 
+    def __init__(self, attributes, values) -> None:
+        for i in enumerate(attributes):
+            setattr(self, attributes[i], values[i])
+    
+    def generate_name(self):
+        self.fullName = f"{self.first} {self.last}"
+        self.fName = f"{self.first[0]}. {self.last}"
 
 class Game:
     def __init__(self) -> None:

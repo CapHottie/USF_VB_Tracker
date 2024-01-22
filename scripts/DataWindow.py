@@ -65,6 +65,9 @@ class DataView():
         LB = self.leftToggleBar
         clear_view(LB)
     
+    def place_options(self):
+        pass
+    
     def blank_window(self):
         clear_view(self.leftToggleBar)
         clear_view(self.mainFrame)

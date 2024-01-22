@@ -1,8 +1,8 @@
 import customtkinter as ctk
 
 def clear_view(view):
-        for element in view.winfo_children():
-            element.grid_remove()
+    for element in view.winfo_children():
+        element.grid_remove()
 def full_res_window(window):
     # screen size
     yRes = window.winfo_screenheight()
